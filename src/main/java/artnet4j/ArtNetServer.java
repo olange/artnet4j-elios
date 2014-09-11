@@ -147,6 +147,7 @@ public class ArtNetServer extends ArtNetNode implements Runnable {
 		}
 		if (socket == null) {
 			socket = new DatagramSocket(port);
+			socket.setReuseAddress( true);
 			logger.info("Art-Net server started at port: " + port);
 			for (ArtNetServerListener l : listeners) {
 				l.artNetServerStarted(this);
